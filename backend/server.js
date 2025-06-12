@@ -43,8 +43,9 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
-  // Add your production frontend URL here
-  'https://your-frontend-domain.vercel.app',
+  // Production frontend URLs
+  'https://meetcute-frontend-nl7cvtc9v-victors-projects-2954c650.vercel.app',
+  'https://meetcute-frontend.vercel.app', // If you have a custom domain
   // Add any other domains that need access
 ];
 

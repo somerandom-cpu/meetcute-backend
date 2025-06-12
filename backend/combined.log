@@ -5831,3 +5831,5 @@
 {"level":"info","message":"GET /api/profiles"}
 {"level":"info","message":"GET /api/profiles"}
 {"level":"info","message":"GET /api/profiles"}
+{"level":"info","message":"GET /api/auth/me"}
+{"level":"info","message":"GET /api/auth/me"}

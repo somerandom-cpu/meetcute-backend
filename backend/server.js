@@ -43,6 +43,9 @@ const allowedOrigins = [
   'http://127.0.0.1:5173',
   'http://localhost:3000',
   'http://127.0.0.1:3000',
+  // Add your production frontend URL here
+  'https://your-frontend-domain.vercel.app',
+  // Add any other domains that need access
 ];
 
 // Enable pre-flight across-the-board
@@ -149,7 +152,12 @@ app.use('/uploads', express.static(uploadsPath, {
 
 // Add a specific route for profile pictures to handle CORS preflight
 app.options('/uploads/profile-pictures/:filename', (req, res) => {
-  res.set('Access-Control-Allow-Origin', 'http://localhost:5173');
+  const requestOrigin = req.headers.origin;
+  if (allowedOrigins.includes(requestOrigin)) {
+    res.set('Access-Control-Allow-Origin', requestOrigin);
+  } else {
+    res.set('Access-Control-Allow-Origin', allowedOrigins[0]); // Fallback to first allowed origin
+  }
   res.set('Access-Control-Allow-Methods', 'GET, OPTIONS');
   res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   res.set('Access-Control-Allow-Credentials', 'true');
